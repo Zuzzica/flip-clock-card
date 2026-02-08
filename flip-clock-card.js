@@ -85,7 +85,7 @@ class FlipClockCard extends HTMLElement {
     const currentValue = parseInt(element.dataset.value);
     if (currentValue === newValue) return;
 
-    // Elementele principale - arată cifra NOUĂ în timpul animației
+    // Elementele principale - arată cifra NOUĂ
     const topHalf = element.querySelector('.flip-card-top .digit');
     const bottomHalf = element.querySelector('.flip-card-bottom .digit');
     
@@ -93,30 +93,22 @@ class FlipClockCard extends HTMLElement {
     const flipTop = element.querySelector('.flip-card-flip-top .digit');
     const flipBottom = element.querySelector('.flip-card-flip-bottom .digit');
 
-    // Setăm valorile pentru animație
-    // Partea de sus principală arată partea de sus a cifrei NOI (se vede în spate)
-    topHalf.textContent = newValue;
-    
-    // Partea de jos principală arată partea de jos a cifrei NOI (se vede în spate)
-    bottomHalf.textContent = newValue;
-    
-    // Elementul de animație de sus arată cifra VECHIE care cade
-    flipTop.textContent = currentValue;
-    
-    // Elementul de animație de jos arată cifra NOUĂ care se ridică
-    flipBottom.textContent = newValue;
+    // Setăm valorile
+    topHalf.textContent = newValue;      // Partea de sus principală = cifra NOUĂ
+    bottomHalf.textContent = newValue;   // Partea de jos principală = cifra NOUĂ
+    flipTop.textContent = currentValue;  // Animația de sus = cifra VECHIE care cade
+    flipBottom.textContent = newValue;   // Animația de jos = cifra NOUĂ care se ridică
 
-    // Eliminăm și adăugăm clasa pentru a reseta animația
+    // Resetăm și pornim animația
     element.classList.remove('flip');
     void element.offsetWidth;
     element.classList.add('flip');
     
-    // După animație, resetăm elementele de animație și actualizăm data-value
+    // După animație, resetăm elementele de animație și eliminăm clasa
     setTimeout(() => {
       element.dataset.value = newValue;
-      // Resetăm elementele de animație la valoarea curentă
-      flipTop.textContent = newValue;
-      flipBottom.textContent = newValue;
+      flipTop.textContent = '';  // GOLIM elementele de animație
+      flipBottom.textContent = ''; // GOLIM elementele de animație
       element.classList.remove('flip');
     }, this.config.animation_speed * 1000 + 50);
   }
