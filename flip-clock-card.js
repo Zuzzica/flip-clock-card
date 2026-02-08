@@ -14,11 +14,11 @@ class FlipClockCard extends HTMLElement {
       show_date: config.show_date !== false,
       hour_format: config.hour_format || '24',
       theme: config.theme || 'dark',
-      animation_speed: config.animation_speed || 0.8,
+      animation_speed: config.animation_speed || 0.3,
       card_width: config.card_width || 40,
       card_height: config.card_height || 80,
       font_size: config.font_size || 72,
-      separator_size: config.separator_size || 10,
+      separator_size: config.separator_size || 48,
       ...config
     };
     this.render();
