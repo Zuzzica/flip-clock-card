@@ -85,7 +85,7 @@ class FlipClockCard extends HTMLElement {
     const currentValue = parseInt(element.dataset.value);
     if (currentValue === newValue) return;
 
-    // Elementele principale - RĂMÂN cu cifra VECHIE în timpul animației
+    // Elementele principale
     const topHalf = element.querySelector('.flip-card-top .digit');
     const bottomHalf = element.querySelector('.flip-card-bottom .digit');
     
@@ -93,27 +93,24 @@ class FlipClockCard extends HTMLElement {
     const flipTop = element.querySelector('.flip-card-flip-top .digit');
     const flipBottom = element.querySelector('.flip-card-flip-bottom .digit');
 
-    // Setăm valorile pentru animație
-    // Elementele principale rămân cu cifra VECHIE
-    // Elementele de animație gestionează tranziția
+    // Setăm elementele PRINCIPALE cu cifra NOUĂ (se văd în spate)
+    topHalf.textContent = newValue;
+    bottomHalf.textContent = newValue;
     
-    // Elementul de animație de sus arată cifra VECHIE care cade
-    flipTop.textContent = currentValue;
-    
-    // Elementul de animație de jos arată cifra NOUĂ care se ridică
-    flipBottom.textContent = newValue;
+    // Setăm elementele de ANIMAȚIE
+    flipTop.textContent = currentValue;  // Cifra VECHIE care cade
+    flipBottom.textContent = newValue;   // Cifra NOUĂ care se ridică
+
+    // Actualizăm data-value IMEDIAT
+    element.dataset.value = newValue;
 
     // Eliminăm și adăugăm clasa pentru a reseta animația
     element.classList.remove('flip');
     void element.offsetWidth;
     element.classList.add('flip');
     
-    // După animație, actualizăm elementele principale cu cifra NOUĂ
+    // După animație, resetăm elementele de animație
     setTimeout(() => {
-      element.dataset.value = newValue;
-      topHalf.textContent = newValue;
-      bottomHalf.textContent = newValue;
-      // Resetăm elementele de animație
       flipTop.textContent = '';
       flipBottom.textContent = '';
       element.classList.remove('flip');
