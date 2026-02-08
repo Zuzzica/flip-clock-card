@@ -105,11 +105,11 @@ class FlipClockCard extends HTMLElement {
 
     // ETAPELE CORECTE:
     
-    // 1. Elementele principale RĂMÂN cu cifra VECHE în timpul animației
+    // 1. Elementele principale RĂMÂN cu cifra VECHIE în timpul animației
     // (topHalf și bottomHalf păstrează currentValue)
     
     // 2. Setăm elementele de ANIMAȚIE
-    flipTop.textContent = currentValue;  // Cifra VECHE care cade
+    flipTop.textContent = currentValue;  // Cifra VECHIE care cade
     flipBottom.textContent = newValue;   // Cifra NOUĂ care se ridică
 
     // 3. Eliminăm și adăugăm clasa pentru a reseta animația
@@ -138,42 +138,45 @@ class FlipClockCard extends HTMLElement {
       <style>
         :host {
           display: block;
-          padding: 24px;
+          padding: 0;
+          margin: 0;
           box-sizing: border-box;
         }
 
         .flip-clock-container {
-          background: ${isDark ? 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)' : 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'};
-          border-radius: 16px;
-          padding: 32px;
+          background: transparent;
+          border-radius: 0;
+          padding: 0;
+          margin: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 24px;
-          box-shadow: ${isDark ? '0 10px 40px rgba(0,0,0,0.4)' : '0 10px 40px rgba(0,0,0,0.1)'};
+          gap: 10px;
+          box-shadow: none;
+          width: 100%;
         }
 
         .clock-wrapper {
           display: flex;
-          gap: 10px;
+          gap: 8px;
           align-items: center;
           justify-content: center;
         }
 
         .time-group {
           display: flex;
-          gap: 6px;
+          gap: 4px;
         }
 
         .separator {
           font-size: ${this.config.separator_size}px;
           font-weight: 700;
-          color: ${isDark ? '#e94560' : '#0f3460'};
+          color: ${isDark ? '#e94560' : '#666666'};
           display: flex;
           align-items: center;
           animation: blink 1s infinite;
           font-family: 'Arial', sans-serif;
-          margin: 0 4px;
+          margin: 0 2px;
         }
 
         @keyframes blink {
@@ -213,7 +216,7 @@ class FlipClockCard extends HTMLElement {
           color: ${isDark ? '#ffffff' : '#2a2a3e'};
           overflow: hidden;
           backface-visibility: hidden;
-          border-radius: 6px;
+          border-radius: 4px;
         }
 
         /* Cifra în sine - va fi poziționată pentru a arăta partea corectă */
@@ -233,10 +236,8 @@ class FlipClockCard extends HTMLElement {
         .flip-card-top {
           top: 0;
           height: 50%;
-          border-bottom: 2px solid ${isDark ? '#1a1a2e' : '#cccccc'};
-          box-shadow: ${isDark ? 
-            'inset 0 -2px 4px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2)' : 
-            'inset 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.1)'};
+          border-bottom: 1px solid ${isDark ? '#1a1a2e' : '#e0e0e0'};
+          box-shadow: none;
         }
 
         .flip-card-top .digit {
@@ -247,10 +248,8 @@ class FlipClockCard extends HTMLElement {
         .flip-card-bottom {
           bottom: 0;
           height: 50%;
-          border-top: 2px solid ${isDark ? '#1a1a2e' : '#cccccc'};
-          box-shadow: ${isDark ? 
-            'inset 0 2px 4px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2)' : 
-            'inset 0 2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.1)'};
+          border-top: 1px solid ${isDark ? '#1a1a2e' : '#e0e0e0'};
+          box-shadow: none;
         }
 
         .flip-card-bottom .digit {
@@ -261,10 +260,8 @@ class FlipClockCard extends HTMLElement {
         .flip-card-flip-top {
           top: 0;
           height: 50%;
-          border-bottom: 2px solid ${isDark ? '#1a1a2e' : '#cccccc'};
-          box-shadow: ${isDark ? 
-            'inset 0 -2px 4px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2)' : 
-            'inset 0 -2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.1)'};
+          border-bottom: 1px solid ${isDark ? '#1a1a2e' : '#e0e0e0'};
+          box-shadow: none;
           transform-origin: bottom;
           z-index: 2;
           opacity: 0;
@@ -278,10 +275,8 @@ class FlipClockCard extends HTMLElement {
         .flip-card-flip-bottom {
           bottom: 0;
           height: 50%;
-          border-top: 2px solid ${isDark ? '#1a1a2e' : '#cccccc'};
-          box-shadow: ${isDark ? 
-            'inset 0 2px 4px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2)' : 
-            'inset 0 2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.1)'};
+          border-top: 1px solid ${isDark ? '#1a1a2e' : '#e0e0e0'};
+          box-shadow: none;
           transform-origin: top;
           z-index: 1;
           opacity: 0;
@@ -322,9 +317,9 @@ class FlipClockCard extends HTMLElement {
         }
 
         .date-display {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 500;
-          color: ${isDark ? '#a8b2d1' : '#4a5568'};
+          color: ${isDark ? '#a8b2d1' : '#666666'};
           text-align: center;
           letter-spacing: 0.5px;
           text-transform: capitalize;
@@ -332,10 +327,10 @@ class FlipClockCard extends HTMLElement {
         }
 
         .am-pm {
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 600;
-          color: ${isDark ? '#e94560' : '#0f3460'};
-          margin-left: 8px;
+          color: ${isDark ? '#e94560' : '#666666'};
+          margin-left: 6px;
           font-family: 'Arial', sans-serif;
         }
       </style>
