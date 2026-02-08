@@ -94,10 +94,10 @@ class FlipClockCard extends HTMLElement {
     const flipBottom = element.querySelector('.flip-card-flip-bottom .digit');
 
     // Setăm valorile pentru animație
-    // Partea de sus principală arată partea de sus a cifrei NOI
+    // Partea de sus principală arată partea de sus a cifrei NOI (se vede în spate)
     topHalf.textContent = newValue;
     
-    // Partea de jos principală arată partea de jos a cifrei NOI
+    // Partea de jos principală arată partea de jos a cifrei NOI (se vede în spate)
     bottomHalf.textContent = newValue;
     
     // Elementul de animație de sus arată cifra VECHIE care cade
@@ -111,9 +111,13 @@ class FlipClockCard extends HTMLElement {
     void element.offsetWidth;
     element.classList.add('flip');
     
-    // Actualizăm data-value după animație
+    // După animație, resetăm elementele de animație și actualizăm data-value
     setTimeout(() => {
       element.dataset.value = newValue;
+      // Resetăm elementele de animație la valoarea curentă
+      flipTop.textContent = newValue;
+      flipBottom.textContent = newValue;
+      element.classList.remove('flip');
     }, this.config.animation_speed * 1000 + 50);
   }
 
