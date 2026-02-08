@@ -9,6 +9,8 @@ Un card animat cu ceas flip modern și elegant pentru Home Assistant.
 
 Card-ul oferă o animație flip pentru fiecare cifră, cu suport pentru teme dark/light, format 12/24 ore, și afișare opțională a datei și secundelor.
 
+![Logo](logo.png)
+
 ## ✨ Caracteristici
 
 - 🎨 **Animație flip realistă** - Fiecare cifră se întoarce cu o animație 3D fluidă
