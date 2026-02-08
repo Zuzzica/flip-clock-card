@@ -61,9 +61,9 @@ show_seconds: true        # Afișează secundele (default: true)
 show_date: true           # Afișează data (default: true)
 hour_format: '24'         # Format oră: '12' sau '24' (default: '24')
 theme: 'dark'             # Tema: 'dark' sau 'light' (default: 'dark')
-animation_speed: 0.6      # Viteza animației în secunde (default: 0.6)
-card_width: 80            # Lățime card în px (default: 80)
-card_height: 100          # Înălțime card în px (default: 100)
+animation_speed: 0.3      # Viteza animației în secunde (default: 0.6)
+card_width: 40            # Lățime card în px (default: 80)
+card_height: 80           # Înălțime card în px (default: 100)
 font_size: 72             # Mărime font în px (default: 72)
 separator_size: 48        # Mărime separator ":" în px (default: 48)
 ```
@@ -76,7 +76,7 @@ separator_size: 48        # Mărime separator ":" în px (default: 48)
 | `show_date` | boolean | `true` | Afișează sau ascunde data |
 | `hour_format` | string | `'24'` | Format oră: `'12'` sau `'24'` |
 | `theme` | string | `'dark'` | Tema cardului: `'dark'` sau `'light'` |
-| `animation_speed` | number | `0.6` | Viteza animației flip (în secunde) |
+| `animation_speed` | number | `0.3` | Viteza animației flip (în secunde) |
 | `card_width` | number | `40` | Lățimea fiecărui card (în px) |
 | `card_height` | number | `80` | Înălțimea fiecărui card (în px) |
 | `font_size` | number | `72` | Mărimea fontului cifrelor (în px) |
