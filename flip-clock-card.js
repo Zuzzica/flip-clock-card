@@ -14,11 +14,11 @@ class FlipClockCard extends HTMLElement {
       show_date: config.show_date !== false,
       hour_format: config.hour_format || '24',
       theme: config.theme || 'dark',
-      animation_speed: config.animation_speed || 0.6,
-      card_width: config.card_width || 80,
-      card_height: config.card_height || 100,
+      animation_speed: config.animation_speed || 0.8,
+      card_width: config.card_width || 40,
+      card_height: config.card_height || 80,
       font_size: config.font_size || 72,
-      separator_size: config.separator_size || 48,
+      separator_size: config.separator_size || 10,
       ...config
     };
     this.render();
@@ -272,11 +272,11 @@ class FlipClockCard extends HTMLElement {
         }
 
         .flip-card.flip .flip-card-flip-top {
-          animation: flipTop ${this.config.animation_speed}s ease-in;
+          animation: flipTop ${this.config.animation_speed / 2}s ease-in forwards;
         }
 
         .flip-card.flip .flip-card-flip-bottom {
-          animation: flipBottom ${this.config.animation_speed}s ease-out ${this.config.animation_speed / 2}s;
+          animation: flipBottom ${this.config.animation_speed / 2}s ease-out ${this.config.animation_speed / 2}s forwards;
         }
 
         @keyframes flipTop {
@@ -383,11 +383,11 @@ class FlipClockCard extends HTMLElement {
       show_date: true,
       hour_format: '24',
       theme: 'dark',
-      animation_speed: 0.6,
-      card_width: 80,
-      card_height: 100,
+      animation_speed: 0.8,
+      card_width: 40,
+      card_height: 80,
       font_size: 72,
-      separator_size: 48
+      separator_size: 10
     };
   }
 }
