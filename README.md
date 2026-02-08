@@ -77,63 +77,26 @@ separator_size: 48        # Mărime separator ":" în px (default: 48)
 | `hour_format` | string | `'24'` | Format oră: `'12'` sau `'24'` |
 | `theme` | string | `'dark'` | Tema cardului: `'dark'` sau `'light'` |
 | `animation_speed` | number | `0.6` | Viteza animației flip (în secunde) |
-| `card_width` | number | `80` | Lățimea fiecărui card (în px) |
-| `card_height` | number | `100` | Înălțimea fiecărui card (în px) |
+| `card_width` | number | `40` | Lățimea fiecărui card (în px) |
+| `card_height` | number | `80` | Înălțimea fiecărui card (în px) |
 | `font_size` | number | `72` | Mărimea fontului cifrelor (în px) |
 | `separator_size` | number | `48` | Mărimea separatorului ":" (în px) |
 
-## 📱 Exemple de Utilizare
+## 📱 Exemplu de Utilizare
 
-### Ceas Minimal (fără secundar și dată)
-
-```yaml
-type: custom:flip-clock-card
-show_seconds: false
-show_date: false
-theme: 'light'
-```
-
-### Ceas Complet cu Animație Rapidă
-
-```yaml
 type: custom:flip-clock-card
 show_seconds: true
 show_date: true
-hour_format: '24'
-theme: 'dark'
-animation_speed: 0.4
-```
-
-### Format 12 Ore cu Temă Light
-
-```yaml
-type: custom:flip-clock-card
-hour_format: '12'
-theme: 'light'
-show_seconds: true
-```
-
-### Carduri Mari (pentru tabletă pe perete)
-
-```yaml
-type: custom:flip-clock-card
-card_width: 100
-card_height: 130
-font_size: 90
-separator_size: 64
-show_seconds: false
-```
-
-### Carduri Mici (compact pentru dashboard)
-
-```yaml
-type: custom:flip-clock-card
-card_width: 60
+hour_format: "24"
+theme: dark
+animation_speed: 0.6
+card_width: 50
 card_height: 80
-font_size: 56
-separator_size: 40
-show_date: false
-```
+font_size: 72
+separator_size: 48
+grid_options:
+  columns: 18
+  rows: auto
 
 ## 🎯 Integrare în Dashboard
 
@@ -141,34 +104,14 @@ Poți adăuga cardul în orice dashboard Lovelace:
 
 1. Intră în modul de editare al dashboard-ului
 2. Click pe "Add Card"
-3. Scroll down și selectează "Custom: Flip Clock Card"
+3. Scroll down și selectează "Custom: flip-clock-card"
 4. Configurează opțiunile dorite
 5. Salvează
-
-## 🐛 Troubleshooting
-
-### Cardul nu apare în lista de carduri
-
-- Verifică că resursa este adăugată corect în Resources
-- Verifică console-ul browserului pentru erori (F12)
-- Asigură-te că ai restartat Home Assistant după instalare
-
-### Animația nu funcționează smooth
-
-- Încearcă să crești `animation_speed` la 0.8 sau 1.0
-- Verifică performanța dispozitivului
 
 ### Data nu se afișează corect
 
 - Cardul folosește limba setată în Home Assistant
 - Verifică setările de limbă din Configuration → General
-
-## 🤝 Contribuții
-
-Contribuțiile sunt binevenite! Simte-te liber să:
-- Raportezi bug-uri
-- Sugerezi funcționalități noi
-- Trimiți pull request-uri
 
 ## 📄 Licență
 
