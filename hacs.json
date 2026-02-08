@@ -1,0 +1,7 @@
+{
+  "name": "Flip Clock Card",
+  "content_in_root": true,
+  "filename": "flip-clock-card.js",
+  "country": ["RO"],
+  "render_readme": true
+}
