@@ -7,7 +7,7 @@ Un card animat cu ceas flip modern și elegant pentru Home Assistant.
 
 ## 📸 Preview
 
-Card-ul oferă o animație flip smoothă pentru fiecare cifră, cu suport pentru teme dark/light, format 12/24 ore, și afișare opțională a datei și secundelor.
+Card-ul oferă o animație flip pentru fiecare cifră, cu suport pentru teme dark/light, format 12/24 ore, și afișare opțională a datei și secundelor.
 
 ## ✨ Caracteristici
 
@@ -29,10 +29,10 @@ Card-ul oferă o animație flip smoothă pentru fiecare cifră, cu suport pentru
 2. Click pe "Frontend"
 3. Click pe cele trei puncte din colțul dreapta sus
 4. Selectează "Custom repositories"
-5. Adaugă URL-ul acestui repository: `https://github.com/your-username/flip-clock-card`
-6. Categoria: `Lovelace`
+5. Adaugă URL-ul acestui repository: `https://github.com/Zuzzica/flip-clock-card`
+6. Categoria: `Dashboard`
 7. Click pe "Add"
-8. Caută "Flip Clock Card" în HACS
+8. Caută "Flip-clock-Card" în HACS
 9. Click pe "Download"
 10. Restart Home Assistant
 
