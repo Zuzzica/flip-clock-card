@@ -105,11 +105,11 @@ class FlipClockCard extends HTMLElement {
 
     // ETAPELE CORECTE:
     
-    // 1. Elementele principale RĂMÂN cu cifra VECHIE în timpul animației
+    // 1. Elementele principale RĂMÂN cu cifra VECHE în timpul animației
     // (topHalf și bottomHalf păstrează currentValue)
     
     // 2. Setăm elementele de ANIMAȚIE
-    flipTop.textContent = currentValue;  // Cifra VECHIE care cade
+    flipTop.textContent = currentValue;  // Cifra VECHE care cade
     flipBottom.textContent = newValue;   // Cifra NOUĂ care se ridică
 
     // 3. Eliminăm și adăugăm clasa pentru a reseta animația
