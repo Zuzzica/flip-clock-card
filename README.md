@@ -82,22 +82,6 @@ separator_size: 48        # Mărime separator ":" în px (default: 48)
 | `font_size` | number | `72` | Mărimea fontului cifrelor (în px) |
 | `separator_size` | number | `48` | Mărimea separatorului ":" (în px) |
 
-## 📱 Exemplu de Utilizare
-
-type: custom:flip-clock-card
-show_seconds: true
-show_date: true
-hour_format: "24"
-theme: dark
-animation_speed: 0.6
-card_width: 50
-card_height: 80
-font_size: 72
-separator_size: 48
-grid_options:
-  columns: 18
-  rows: auto
-
 ## 🎯 Integrare în Dashboard
 
 Poți adăuga cardul în orice dashboard Lovelace:
