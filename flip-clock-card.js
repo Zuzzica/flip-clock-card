@@ -14,11 +14,11 @@ class FlipClockCard extends HTMLElement {
       show_date: config.show_date !== false,
       hour_format: config.hour_format || '24',
       theme: config.theme || 'dark',
-      animation_speed: config.animation_speed || 0.3,
+      animation_speed: config.animation_speed || 0.8,
       card_width: config.card_width || 40,
       card_height: config.card_height || 80,
       font_size: config.font_size || 72,
-      separator_size: config.separator_size || 48,
+      separator_size: config.separator_size || 10,
       ...config
     };
     this.render();
@@ -52,9 +52,11 @@ class FlipClockCard extends HTMLElement {
 
   updateTime() {
     const now = new Date();
+    const hours24 = now.getHours();
+    const isPM = hours24 >= 12;
     const hours = this.config.hour_format === '12'
-      ? now.getHours() % 12 || 12
-      : now.getHours();
+      ? hours24 % 12 || 12
+      : hours24;
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
@@ -66,6 +68,14 @@ class FlipClockCard extends HTMLElement {
     if (this.config.show_seconds) {
       this.updateFlipDigit('seconds-tens', Math.floor(seconds / 10));
       this.updateFlipDigit('seconds-ones', seconds % 10);
+    }
+
+    // Actualizăm AM/PM
+    if (this.config.hour_format === '12') {
+      const amPmElement = this.shadowRoot.querySelector('.am-pm');
+      if (amPmElement) {
+        amPmElement.textContent = isPM ? 'PM' : 'AM';
+      }
     }
 
     if (this.config.show_date) {
